@@ -1,0 +1,29 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
+
+    <div *ngIf="error" class="error-alert">
+      <span class="icon">⚠️</span> {{ mensajeError }}
+    </div>
+
+    <div class="input-group">
+      <label>Usuario</label>
+      <input 
+        type="text" 
+        [(ngModel)]="usuario" 
+        placeholder="Ingresa tu usuario"
+        (input)="error = false"> </div>
+
+    <div class="input-group">
+      <label>Contraseña</label>
+      <input 
+        type="password" 
+        [(ngModel)]="password" 
+        placeholder="••••••••" 
+        (keyup.enter)="login()"
+        (input)="error = false">
+    </div>
+
+    <button class="btn-login" (click)="login()">Entrar</button>
+  </div>
+</div>

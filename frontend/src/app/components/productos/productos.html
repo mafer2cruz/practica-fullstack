@@ -1,0 +1,48 @@
+<div class="main-container">
+  <h2>Gestión de Productos</h2>
+
+  <div class="form-card">
+    <h3>{{ editando ? ' Editando Producto' : '➕ Agregar Nuevo Producto' }}</h3>
+    <div class="form-grid">
+      <input placeholder="Nombre" [(ngModel)]="nuevo.nombre">
+      <input placeholder="Marca" [(ngModel)]="nuevo.marca">
+      <input placeholder="Categoría" [(ngModel)]="nuevo.categoria">
+      <input type="number" placeholder="Precio" [(ngModel)]="nuevo.precio">
+      <input type="number" placeholder="Existencias" [(ngModel)]="nuevo.existencias">
+      
+      <button class="btn-add" (click)="guardar()">{{ editando ? 'Actualizar' : 'Guardar' }}</button>
+      <button *ngIf="editando" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input placeholder="🔍 Buscar por nombre..." [(ngModel)]="filtroNombre" (input)="paginaActual = 1">
+    <div class="pagination">
+      <button [disabled]="paginaActual === 1" (click)="cambiarPagina(-1)">Anterior</button>
+      <span>Página {{paginaActual}} de {{totalPaginas}}</span>
+      <button [disabled]="paginaActual >= totalPaginas" (click)="cambiarPagina(1)">Siguiente</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div *ngFor="let p of productosMostrados" class="card" [class.inactive]="!p.activo">
+      <div class="card-header">
+        <h3>{{p.nombre}}</h3>
+        <span class="badge" [class.active]="p.activo">{{p.activo ? 'Activo' : 'Inactivo'}}</span>
+      </div>
+      <div class="card-body">
+        <p><b>Marca:</b> {{p.marca}}</p>
+        <p><b>Categoría:</b> {{p.categoria}}</p>
+        <p><b>Precio:</b> ${{p.precio}}</p>
+        <p><b>Stock:</b> {{p.existencias}}</p>
+      </div>
+      <div class="card-actions">
+        <button (click)="prepararEdicion(p)">Editar</button>
+        <button (click)="eliminar(p.id)"> Eliminar</button>
+        <button (click)="toggleActivo(p)">{{p.activo ? 'Desactivar' : 'Activar'}}</button>
+      </div>
+
+      
+    </div>
+  </div>
+</div>

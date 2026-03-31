@@ -1,0 +1,104 @@
+/* Contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 30px;
+    background-color: #f8f9fa; /* Fondo gris muy claro */
+}
+
+/* Tarjeta mejorada */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: transform 0.2s; /* Efecto al pasar el mouse */
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Se eleva un poquito */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* Etiquetas de estado (Badge) */
+.estado-activo {
+    color: #28a745;
+    background: #e8f5e9;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.form-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.card {
+  transition: all 0.3s ease;
+  border-left: 5px solid #28a745; /* Verde si está activo */
+}
+
+.card.inactive {
+  opacity: 0.7;
+  border-left: 5px solid #dc3545; /* Rojo si está inactivo */
+  background-color: #f9f9f9;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  background: #eee;
+}
+
+.badge.active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.price {
+  color: #28a745;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-edit { background: #ffc107; border: none; padding: 6px; border-radius: 4px; cursor: pointer; }
