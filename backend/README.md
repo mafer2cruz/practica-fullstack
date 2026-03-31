@@ -1,3 +1,5 @@
+## Última actualización
+Se agregó documentación final del proyecto.
 # Proyecto Fullstack - Productos
 
 Este proyecto es una aplicación fullstack desarrollada con:
